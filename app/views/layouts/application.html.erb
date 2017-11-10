@@ -1,14 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Redirector</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="<%= @description %>" />
+<meta name='image' content='<%= @preview_image %>' />
+<link rel="image_src" href='<%= @preview_image %>' />
+<meta property="og:image" content="<%= @preview_image %>" />
+<meta property="og:title" content="<%= @title %>" />
+<meta property="og:description" content="<%= @description %>" />
+<!--meta property="og:url" content="http://pics.ee/v-2308792" /-->
+<meta property="og:video" content="https://www.youtube.com/embed/fBaUu74hy_o?list=PLHVtMp_LI1HVbhFWR6sB3KGbSyD_qB66U&autoplay=1"/>
+<meta property="og:video:type" content="application/x-shockwave-flash"/>
+<meta property="og:video:width" content="1280"/>
+<meta property="og:video:height" content="720"/>
+<meta property="og:video" content="https://www.youtube.com/embed/fBaUu74hy_o?list=PLHVtMp_LI1HVbhFWR6sB3KGbSyD_qB66U&autoplay=1"/>
+<meta property="og:video:secure_url" content="https://www.youtube.com/embed/fBaUu74hy_o?list=PLHVtMp_LI1HVbhFWR6sB3KGbSyD_qB66U&autoplay=1"/>
+<meta property="og:video:type" content="text/html"/>
+<meta property="og:video:width" content="1280">
+<meta property="og:video:height" content="720">
+
+<meta property="og:type" content="video"/>
+<meta property="article:author" content="@youtube"/>
+
+<link itemprop="embedURL" href="https://www.youtube.com/embed/fBaUu74hy_o?list=PLHVtMp_LI1HVbhFWR6sB3KGbSyD_qB66U">
+
+<meta name="twitter:card" content="summary_large_image"><!--For Twitter, Always don't embeded-->
+<meta name="twitter:site" content="www.youtube.com">
+<meta name="twitter:title" content="<%= @title %>">
+<meta name="twitter:description" content="<%= @description %>">
+<meta name="twitter:domain" content="www.youtube.com">
+
+<meta itemprop="name" content="<%= @title %>">
+<meta itemprop="image" content="<%= @preview_image %>">
+<meta itemprop="description" content="<%= @description %>">
+
+<title><%= @title %></title>
+<style type="text/css">
+body{
+  /*width: 100vw;
+  height: 100vh;*/
+  margin: 0px;
+  padding: 0px;
+}
+a, a:link, a:hover{
+  text-decoration: none;
+  color: #FFF;
+}
+</style>
 </head>
-<body>
-
-<%= yield %>
-
+<body data-mobile-mode="yep" data-showing-advertisement="none">
+  <div id="box" style="color:#FFF;">
+    <h1><a href="<%= @redirect_to %>">[YouTube Enlarger] <%= @title %>FB</a></h1>
+    <p>
+      <img title="<%= @title %>" src="<%= @preview_image %>" alt="<%= @title %>" border=0 >
+      <%= @description %>      <hr />
+    </p>
+  </div>
+<script type="text/javascript">
+  document.getElementById("box").style.display = "none";
+  location.replace('<%= @redirect_to %>');
+</script>
 </body>
-</html>
